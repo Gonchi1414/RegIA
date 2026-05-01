@@ -60,4 +60,10 @@ export class MessagesService {
       }
     });
   }
+
+  async deleteAllMessages(): Promise<void> {
+    // .clear() TRUNCATES the table, which is fast and resets IDs. 
+    // You could also use .delete({})
+    await this.messagesRepository.clear();
+  }
 }
